@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Stack.fs" />
+    <Compile Include="Queue.fs" />
+    <Compile Include="Search.fs" />
+    <Compile Include="DepthLimitedSearch.fs" />
+    <Compile Include="IterativeDeepeningDepthFirstSearch.fs" />
+    <Compile Include="DepthFirstSearch.fs" />
+    <Compile Include="BreadthFirstSearch.fs" />
+    <Compile Include="UniformCostSearch.fs" />
+    <Compile Include="The8Puzzle.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>
