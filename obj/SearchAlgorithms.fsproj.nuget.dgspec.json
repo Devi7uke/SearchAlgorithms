@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\SearchAlgorithms.fsproj": {}
+    "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\SearchAlgorithms.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\SearchAlgorithms.fsproj": {
+    "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\SearchAlgorithms.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\SearchAlgorithms.fsproj",
+        "projectUniqueName": "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\SearchAlgorithms.fsproj",
         "projectName": "SearchAlgorithms",
-        "projectPath": "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\SearchAlgorithms.fsproj",
-        "packagesPath": "C:\\Users\\dvlk8\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\obj\\",
+        "projectPath": "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\SearchAlgorithms.fsproj",
+        "packagesPath": "C:\\Users\\Brayan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dvlk8\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Brayan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"

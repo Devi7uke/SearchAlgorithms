@@ -8,10 +8,10 @@
     <Compile Include="Queue.fs" />
     <Compile Include="Search.fs" />
     <Compile Include="DepthLimitedSearch.fs" />
+    <Compile Include="UniformCostSearch.fs" />
     <Compile Include="IterativeDeepeningDepthFirstSearch.fs" />
     <Compile Include="DepthFirstSearch.fs" />
     <Compile Include="BreadthFirstSearch.fs" />
-    <Compile Include="UniformCostSearch.fs" />
     <Compile Include="The8Puzzle.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

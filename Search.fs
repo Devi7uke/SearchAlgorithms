@@ -51,7 +51,8 @@ module Chapter3 =
         let rec loop fringe =
             match strategy.remove fringe with
             | Some (n, fringe') ->
-                if problem.goal n.state then Some n 
+                if problem.goal n.state then
+                    Some n 
                 else 
                     expand problem n
                     |> List.fold strategy.insert fringe'
@@ -72,9 +73,11 @@ module Chapter3 =
         let rec loop (fringe, processed) =
             match strategy.remove fringe with
             | Some (n, fringe') -> 
-                if problem.goal n.state then Some n 
+                if problem.goal n.state then
+                    Some n 
                 else
-                    if Set.contains (key n) processed then loop (fringe', processed) 
+                    if Set.contains (key n) processed then 
+                        loop (fringe', processed) 
                     else
                         expand problem n
                         |> List.fold strategy.insert fringe'
