@@ -17,17 +17,19 @@ module The8Puzzle =
     let zero state =
         List.findIndex (fun x -> x = 0) state
     
-    let successor i action (state : state) =
+    let successor i action state =
         let swap i j =
-            List.mapi (fun idx v -> 
-            if idx = i then 
-                List.item j state
-            else if idx = j then
-                List.item i state 
-            else 
-                v) state
+            state
+            |> List.mapi (fun idx v -> 
+                    if idx = i then 
+                        List.item j state
+                    else if idx = j then
+                        List.item i state 
+                    else 
+                        v
+                )
         match action with
-        | Left -> if i % 2 <> 0 then Some (action, swap i (i - 1)) else None
+        | Left -> if i % 3 <> 0 then Some (action, swap i (i - 1)) else None
         | Right -> if i % 3 <> 2 then Some (action, swap i (i + 1)) else None
         | Up -> if i > 2 then Some (action, swap i ( i - 3)) else None
         | Down -> if i < 6 then Some (action, swap i (i + 3)) else None
@@ -48,6 +50,31 @@ module The8Puzzle =
         cost = cost
     }
 
+    let heuristicOne node =
+        List.zip aim node.state
+        |> List.sumBy (fun(x, y) -> if x <> y && x <> 0 then 1.0 else 0.0)
+
+    let heuristicTwo node =
+        let manhattanDistance (x1, y1) (x2, y2) = abs (x1 - x2) + abs (y1 - y2)
+        let distance x =
+            let pos = List.findIndex (fun y -> y = x) node.state
+            let (row, col) = pos / 3, pos % 3
+            let (aim_row, aim_col) = (x - 1) / 3, (x - 1) % 3
+            manhattanDistance (row, col) (aim_row, aim_col)
+        node.state |> List.sumBy distance |> float
+
+
+
+
+
+
+
+
+
+
+
+
+(*
 module The8PuzzleMutable =
     type action =
         | Left
@@ -92,3 +119,4 @@ module The8PuzzleMutable =
         goal = goal
         cost = cost
     }
+*)

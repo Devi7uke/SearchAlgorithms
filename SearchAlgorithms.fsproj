@@ -12,6 +12,8 @@
     <Compile Include="IterativeDeepeningDepthFirstSearch.fs" />
     <Compile Include="DepthFirstSearch.fs" />
     <Compile Include="BreadthFirstSearch.fs" />
+    <Compile Include="GreedySearch.fs" />
+    <Compile Include="AAsterisk.fs" />
     <Compile Include="The8Puzzle.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

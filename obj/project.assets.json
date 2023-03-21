@@ -108,19 +108,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brayan\\.nuget\\packages\\": {}
+    "C:\\Users\\dvlk8\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\SearchAlgorithms.fsproj",
+      "projectUniqueName": "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\SearchAlgorithms.fsproj",
       "projectName": "SearchAlgorithms",
-      "projectPath": "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\SearchAlgorithms.fsproj",
-      "packagesPath": "C:\\Users\\Brayan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Brayan\\Documents\\GitHub\\SearchAlgorithms\\obj\\",
+      "projectPath": "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\SearchAlgorithms.fsproj",
+      "packagesPath": "C:\\Users\\dvlk8\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dvlk8\\OneDrive\\Documents\\F#\\SearchAlgorithms\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Brayan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\dvlk8\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
