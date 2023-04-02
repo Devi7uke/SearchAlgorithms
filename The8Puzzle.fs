@@ -63,18 +63,6 @@ module The8Puzzle =
             manhattanDistance (row, col) (aim_row, aim_col)
         node.state |> List.sumBy distance |> float
 
-
-
-
-
-
-
-
-
-
-
-
-(*
 module The8PuzzleMutable =
     type action =
         | Left
@@ -119,4 +107,3 @@ module The8PuzzleMutable =
         goal = goal
         cost = cost
     }
-*)

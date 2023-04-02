@@ -52,7 +52,7 @@ module Chapter3 =
             match strategy.remove fringe with
             | Some (n, fringe') ->
                 if problem.goal n.state then
-                    Some n 
+                    Some n
                 else 
                     expand problem n
                     |> List.fold strategy.insert fringe'

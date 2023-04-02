@@ -1,4 +1,33 @@
 ﻿open Search
+let statea = [1;2;3;4;0;6;7;5;8]
+
+let state = [
+        [2; 5; 0; 0; 3; 0; 9; 0; 1];
+        [0; 1; 0; 0; 0; 4; 0; 0; 0];
+        [4; 0; 7; 0; 0; 0; 2; 0; 8];
+        [0; 0; 5; 2; 0; 0; 0; 0; 0];
+        [0; 0; 0; 0; 9; 8; 1; 0; 0];
+        [0; 4; 0; 0; 0; 3; 0; 0; 0];
+        [0; 0; 0; 3; 6; 0; 0; 7; 2];
+        [0; 7; 0; 0; 0; 0; 0; 0; 3];
+        [9; 0; 3; 0; 0; 0; 6; 0; 4]
+    ]
+
+match Chapter3.treeSearch DFS.strategy (Sudoku.problem state) with
+    |Some n ->
+        //let sol = Chapter3.actions n
+        printfn "Solution %A" n.state
+    |None -> printfn "There is no solution :("
+
+
+(*
+match Chapter3.treeSearch DFS.strategy (The8Puzzle.problem statea) with
+    | Some n -> 
+        let sol = Chapter3.actions n 
+        printfn "Solucion: %A" sol
+    | None -> printfn "Solucion no encontrada :("
+*)
+(*
 let Arraystate = [| 1;2;3;4;6;0;7;5;8 |]
 let state = [1;2;3;4;0;6;7;5;8]
 let state_26 = [5;7;3;6;4;2;0;8;1]
@@ -13,10 +42,6 @@ match Chapter3.graphSearch (AAS.key The8Puzzle.heuristicTwo) (AAS.strategy The8P
     | None -> printfn "There is no solution for this problem :("
 let delta = System.DateTime.UtcNow - t0
 printfn "Time elapsed: %A" delta
-
-
-
-(*
 //Iterative deepening DFS to solve The 8-Puzzle
 match IDSUCS.strategy (The8Puzzle.problem statex) with
     | Some n -> 
