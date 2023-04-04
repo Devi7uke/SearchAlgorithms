@@ -22,12 +22,10 @@ type strategy<'s, 'a, 'd> = {
 }
 
 module Chapter3 =
-    let rec map f xs = 
-        match xs with
-        | [] -> []
-        | h :: t -> f h :: map f t
-    
+    let mutable expanded_nodes = 0.0
+
     let expand problem parent = 
+        expanded_nodes <- expanded_nodes + 1.0
         problem.successors parent.state
         |> List.map (fun (a, s) -> {
             depth = parent.depth + 1
