@@ -24,6 +24,14 @@ type strategy<'s, 'a, 'd> = {
 module Chapter3 =
     let mutable expanded_nodes = 0.0
 
+    let initialNode state = {
+        state = state
+        depth = 0
+        path_cost = 0.0
+        action = None
+        parent = None
+    }
+    
     let expand problem parent = 
         expanded_nodes <- expanded_nodes + 1.0
         problem.successors parent.state
@@ -36,16 +44,8 @@ module Chapter3 =
         })
 
     let treeSearch strategy problem =
-        let root = {
-            state = problem.start
-            depth = 0
-            path_cost = 0.0
-            action = None
-            parent = None
-        }
-
+        let root = initialNode problem.start
         let fringe = strategy.insert strategy.empty root
-
         let rec loop fringe =
             match strategy.remove fringe with
             | Some (n, fringe') ->
@@ -59,14 +59,7 @@ module Chapter3 =
         loop fringe
 
     let graphSearch key strategy problem =
-        let root = {
-            state = problem.start
-            depth = 0
-            path_cost = 0.0
-            action = None
-            parent = None
-        }
-
+        let root = initialNode problem.start
         let fringe = strategy.insert strategy.empty root
         let rec loop (fringe, processed) =
             match strategy.remove fringe with
@@ -87,3 +80,43 @@ module Chapter3 =
         match n.action, n.parent with
         | Some a, Some p -> actions p @ [a]
         | _ -> []
+
+module Chapter4 =
+    open Chapter3
+    open System
+    let hillClimbing h problem =
+        let current = initialNode problem.start
+        let rec loop current =
+            let successors = expand problem current
+            let neighbor = List.minBy h successors
+            let b = h neighbor >= h current
+            match b with
+            | true -> current
+            | false -> loop neighbor
+        loop current
+
+    let temperature T0 lamda t =
+        let T = T0 * Math.Exp(-lamda * t)
+        let b = T < 1E-6
+        match b with
+        | true -> 0.0
+        | false -> T
+
+    let simulatedAnnealing seed h temperature problem =
+        let random = System.Random(seed)
+        let current = initialNode problem.start
+        let rec loop (t, current) =
+            let T = temperature t
+            let b = T = 0.0
+            match b with
+            | true -> current
+            | false -> 
+                let successors = expand problem current
+                let i = random.Next(List.length successors)
+                let next = List.item i successors
+                let delta = h next - h current
+                let b' = delta < 0.0 || random.NextDouble() <= Math.Exp (delta / T)
+                match b' with
+                | true -> loop (t + 1.0, next)
+                | false -> loop (t + 1.0, current)
+        loop (1.0, current)

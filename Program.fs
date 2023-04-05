@@ -56,8 +56,6 @@ let rec newton_Raphson N K b =
     | true -> b'
     | false -> newton_Raphson N K b'
 
-let index state = state |> List.findIndex (fun x -> List.exists (fun y -> y = 0) x)
-
 let t0 = System.DateTime.UtcNow
 //match Chapter3.treeSearch UCS.strategy (Sudoku.problem state2) with
 //match Chapter3.treeSearch BFS.strategy (Sudoku.problem state2) with
