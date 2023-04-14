@@ -9,6 +9,7 @@ module UCS =
             | Some k -> Some (Map.find k pqueue, Map.remove k pqueue)
             | None -> None
     }
+    let key n = n.state
 
 module UCSL =
     let strategy l = {
@@ -23,3 +24,4 @@ module UCSL =
             | Some k -> Some (Map.find k pqueue, Map.remove k pqueue)
             | None -> None
     }
+    let key n = n.state

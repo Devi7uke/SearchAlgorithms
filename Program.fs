@@ -1,4 +1,17 @@
 ﻿open Search
+
+//match Chapter3.graphSearch BFS.key BFS.strategy Farmer.problem with
+//match Chapter3.treeSearch BFS.strategy Farmer.problem with
+//match Chapter3.graphSearch DFS.key DFS.strategy (Path.problem) with
+//match Chapter3.graphSearch UCS.key UCS.strategy (Path.problem) with
+match Chapter3.graphSearch (AAS.key Path.heuristicOne) (AAS.strategy Path.heuristicOne) Path.problem with
+| Some n -> 
+    let sol = Chapter3.actions n
+    printfn "%A" sol
+    printfn "Generated nodes: %A" Chapter3.expanded_nodes
+| None -> printfn "There is no solution :("
+
+(*
 let statea = [1;2;3;4;0;6;7;5;8]
 
 let state = [
@@ -37,6 +50,35 @@ let state3 = [
     [0; 0; 0; 0; 0; 0; 0; 0; 0]
 ]
 
+let heuristicOne state =
+        let rows state = state
+        let cols state = List.transpose state
+        let grids state = state |> List.chunkBySize 3 |> List.map (fun chunk -> chunk |> List.transpose |> List.concat) |> List.concat |> List.chunkBySize 9
+        let zeros = state |> List.mapi (fun i row ->
+            row
+            |> List.mapi (fun j x -> (i, j, x))
+            |> List.filter (fun (_, _, x) -> x = 0)
+            |> List.map (fun (i, j, _) -> (i, j))
+        )
+        let possibilities = List.concat zeros |> List.sumBy (fun (i, j) ->
+            let row = rows state |> List.item i 
+            let col = cols state |> List.item j
+            let sgr = grids state |> List.item (i/3*3 + j/3)
+            let guess = [1..9] |> List.filter (fun cand -> not (row |> List.contains cand || col |> List.contains cand || sgr |> List.contains cand))
+            guess.Length |> float
+        )
+        1000.0 / possibilities
+
+let grids state = 
+    state 
+    |> List.chunkBySize 3 
+    |> List.map (fun chunk -> chunk |> List.transpose |> List.concat) 
+    |> List.concat 
+    //|> List.chunkBySize 9
+
+//printf"%A" (heuristicOne state3)
+
+
 let rec showGrid list = 
     list
     |> List.iter (fun list ->
@@ -59,12 +101,13 @@ let rec newton_Raphson N K b =
 let t0 = System.DateTime.UtcNow
 //match Chapter3.treeSearch UCS.strategy (Sudoku.problem state2) with
 //match Chapter3.treeSearch BFS.strategy (Sudoku.problem state2) with
-match Chapter3.treeSearch DFS.strategy (Sudoku.problem state) with
+match Chapter3.graphSearch (AAS.key Sudoku.heuristicOne) (AAS.strategy Sudoku.heuristicOne) (Sudoku.problem state3) with
+//match Chapter3.treeSearch DFS.strategy (Sudoku.problem state) with
     |Some n ->
         let sol = Chapter3.actions n
         let N = Chapter3.expanded_nodes
         let K = n.depth
-        let b = 1.0
+        let b = 4.0
         //printfn "Depth: %A\nActions: %A\n" n.depth sol
         printfn "Expanded nodes: %A \nAverage branching factor: %A" N (newton_Raphson N K b)
         printfn "Solution: \n"
@@ -73,7 +116,7 @@ match Chapter3.treeSearch DFS.strategy (Sudoku.problem state) with
 let delta = System.DateTime.UtcNow - t0
 printfn "Time elapsed: %A" delta
 
-(*
+
 match Chapter3.treeSearch DFS.strategy (The8Puzzle.problem statea) with
     | Some n -> 
         let sol = Chapter3.actions n 

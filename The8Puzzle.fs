@@ -33,7 +33,7 @@ module The8Puzzle =
         | Right -> if i % 3 <> 2 then Some (action, swap i (i + 1)) else None
         | Up -> if i > 2 then Some (action, swap i ( i - 3)) else None
         | Down -> if i < 6 then Some (action, swap i (i + 3)) else None
-
+        
     let successors state =
         let index = zero state
         [
