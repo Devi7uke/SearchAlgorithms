@@ -1,16 +1,32 @@
 ﻿open Search
 
-//match Chapter3.graphSearch BFS.key BFS.strategy Farmer.problem with
+
+match CSP.backtracking (NQueens.csp 20) with
+| Some n -> Map.iter (printfn "%A: %A") n.state
+| None -> printf "There is no solution :("
+
+(*
+let start = [
+        0; 0; 0; 0; 0; 0; 0; 0; 
+        0; 0; 0; 0; 0; 0; 0; 0;
+        0; 0; 0; 0; 0; 0; 0; 0;
+        0; 0; 0; 0; 0; 0; 0; 0;
+        0; 0; 0; 0; 0; 0; 0; 0;
+        0; 0; 0; 1; 0; 0; 0; 0;
+        0; 0; 0; 0; 0; 0; 0; 0;
+        0; 0; 0; 0; 0; 0; 0; 0
+    ]
+match Chapter3.graphSearch BFS.key BFS.strategy Farmer.problem with
 //match Chapter3.treeSearch BFS.strategy Farmer.problem with
 //match Chapter3.graphSearch DFS.key DFS.strategy (Path.problem) with
 //match Chapter3.graphSearch UCS.key UCS.strategy (Path.problem) with
-match Chapter3.graphSearch (AAS.key Path.heuristicOne) (AAS.strategy Path.heuristicOne) Path.problem with
+//match Chapter3.graphSearch (AAS.key Path2.heuristicOne) (AAS.strategy Path2.heuristicOne) (Path2.problem start) with
 | Some n -> 
     let sol = Chapter3.actions n
     printfn "%A" sol
     printfn "Generated nodes: %A" Chapter3.expanded_nodes
 | None -> printfn "There is no solution :("
-
+*)
 (*
 let statea = [1;2;3;4;0;6;7;5;8]
 

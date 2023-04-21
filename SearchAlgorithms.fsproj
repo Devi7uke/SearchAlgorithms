@@ -13,11 +13,13 @@
     <Compile Include="DepthFirstSearch.fs" />
     <Compile Include="BreadthFirstSearch.fs" />
     <Compile Include="GreedySearch.fs" />
+    <Compile Include="ConstraintSatisfactionProblems.fs" />
     <Compile Include="AAsterisk.fs" />
     <Compile Include="The8Puzzle.fs" />
     <Compile Include="Sudoku9x9.fs" />
     <Compile Include="Path.fs" />
     <Compile Include="Farmer.fs" />
+    <Compile Include="N-Queens.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
